@@ -1,0 +1,10 @@
+    <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
+
+<div>
+  <h1 class="text-red-500 text-5xl font-bold text-center">Food Trucks in San Francisco</h1>
+  <ul>
+    <%= for item <- @data do %>
+      <li><%= item %></li>
+    <% end %>
+  </ul>
+</div>
