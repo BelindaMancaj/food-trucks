@@ -1,6 +1,6 @@
 defmodule FoodTrucks.FoodTrucks do
   def get_trucks() do
-    response = HTTPoison.get("https://data.sfgov.org/api/views/rqzj-sfat/rows.json")
+    response = get_food_trucks()
 
     case response do
       {:ok, %{status_code: 200, body: body}} ->
@@ -25,5 +25,9 @@ defmodule FoodTrucks.FoodTrucks do
       {:error, reason} ->
         {:error, "Failed: #{inspect(reason)}"}
     end
+  end
+
+  defp get_food_trucks() do
+    HTTPoison.get("https://data.sfgov.org/api/views/rqzj-sfat/rows.json")
   end
 end
